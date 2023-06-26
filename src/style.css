@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    height: 100vh;
+    background-color: linear-gradient(135deg, #8052ec, #d161ff);
+}
+
+html {
+    font-size : 16px;
+
+}
+
+.wrapper{
+    position :absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.container {
+    width: 70vmin;
+    height: 70vmin;
+    display: flex;
+
+}
+.button-option{
+    background: #ffffff;
+    height: 22vmin;
+    width: 22vmin;
+}
