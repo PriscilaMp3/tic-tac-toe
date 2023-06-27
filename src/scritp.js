@@ -125,3 +125,14 @@ document.getElementById('new-game').addEventListener('click', () => {
   hidePopup();
   resetGame();
 });
+
+
+// Obtén una referencia a cada botón del juego
+const buttons = document.getElementsByClassName('button-option');
+
+// Asigna el evento de clic a cada botón
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function() {
+    playerMove(i);
+  });
+}
