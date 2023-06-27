@@ -6,12 +6,12 @@
 }
 body {
   height: 100vh;
-  background: linear-gradient(135deg, #8052ec, #d161ff);
+  background: linear-gradient(135deg, #856ebf, #d161ff);
 }
 html {
   font-size: 16px;
 }
-.wrapper {
+.box {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -24,7 +24,7 @@ html {
   flex-wrap: wrap;
   gap: 2vmin;
 }
-.button-option {
+.celda {
   background: #ffffff;
   height: 22vmin;
   width: 22vmin;
@@ -70,7 +70,9 @@ html {
   color: #ffffff;
   text-align: center;
   font-size: 1em;
+  text-shadow: 20px 0px 20px rgb(253, 81, 242), 0 0 20px rgb(255, 0, 238);
 }
 .popup.hide {
   display: none;
 }
+
