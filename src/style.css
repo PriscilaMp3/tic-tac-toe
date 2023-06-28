@@ -6,7 +6,7 @@
 }
 body {
   height: 100vh;
-  background: linear-gradient(135deg, #856ebf, #d161ff);
+  background: linear-gradient(135deg, #39e230, #6cafc5);
 }
 html {
   font-size: 16px;
@@ -31,7 +31,7 @@ html {
   border: none;
   border-radius: 8px;
   font-size: 12vmin;
-  color: #d161ff;
+  color: #3b46bd;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 #restart {
@@ -45,8 +45,8 @@ html {
   margin: 1.5em auto 0 auto;
   display: block;
 }
-.popup {
-  background: linear-gradient(135deg, #8052ec, #d161ff);
+.emergente {
+  background: linear-gradient(135deg, #39e230, #6cafc5);
   height: 100%;
   width: 100%;
   position: absolute;
@@ -70,9 +70,24 @@ html {
   color: #ffffff;
   text-align: center;
   font-size: 1em;
-  text-shadow: 20px 0px 20px rgb(253, 81, 242), 0 0 20px rgb(255, 0, 238);
+  text-shadow: 20px 0px 20px rgb(74, 204, 236), 0 0 20px rgb(138, 232, 152);
 }
-.popup.hide {
+.emergente.hide {
   display: none;
 }
+
+.Jugadores{
+  font-size: 1em;
+  padding: 0.5em 1em;
+  background-color: #0a0027;
+  color: #ffffff;
+  border-radius: 0.2em;
+  border: none;
+  text-align: center;
+}
+
+.Jugadores.hide {
+  display: none;
+}
+
 
