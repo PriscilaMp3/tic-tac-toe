@@ -76,7 +76,7 @@ html {
   display: none;
 }
 
-.Jugadores{
+.Jugadores {
   font-size: 1em;
   padding: 0.5em 1em;
   background-color: #0a0027;
@@ -90,12 +90,6 @@ html {
   display: none;
 }
 
-
-
-
-
-
-
 .modal {
   width: 100%;
   height: 100vh;
@@ -103,22 +97,40 @@ html {
   position: absolute;
   top: 0;
   left: 0;
+
   display: flex;
   animation: modal 2s 1s forwards;
   visibility: hidden;
   opacity: 0;
   border: 3px solid;
- 
-
+  z-index: 2;
 }
-
+.cuadro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+ justify-content: center;
+  background-color: rgb(171, 208, 191);
+  height: 300px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  border-radius: 10px;
+  margin-right: 15px;
+  box-shadow: 0px 0px 20px #d6f041, 0px 0px 20px #bcf73b;
+}
+h4{
+  font-family:  'Press Start 2P', cursive;
+ font-size: 6vh ;
+ color: lime;
+}
 .contenido {
   margin: auto;
   width: 40%;
   height: 40%;
-  background: white;
+  background: rgb(171, 208, 191);
   border-radius: 10px;
-  box-shadow: 0px 0px 20px #f04181, 0px 0px 20px #f73b80
+  box-shadow: 0px 0px 20px #7bf041, 0px 0px 20px #a2f73b;
 }
 
 #cerrar {
@@ -140,6 +152,11 @@ html {
   animation: modal 2s 1s forwards;
   visibility: hidden;
   opacity: 0;
+}
+
+.audio {
+  padding-top: 700px;
+  padding-left: 20px;
 }
 
 #cerrar:checked + label,
