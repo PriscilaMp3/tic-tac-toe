@@ -2,20 +2,30 @@
 <html lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+   
 </head>
 <body>
 
     
+<!-- MODAL  -->
     <input type="checkbox" id="cerrar">
     <label for="cerrar" id="btn-cerrar">X</label>
     <div class="modal">
        <div class="contenido">
+        <div>
+     <h4 class="cuadro">
+        Inicia El Juego
+     </h4>
+        </div>
+      
        </div>
     </div>
 
-
+<!-- MODAL  -->
 
     <div class="Jugadores">
         Jugador Actual
@@ -41,7 +51,15 @@
        <img src="img1.png" width="400px" height="400px">
        <button id="new-game">Nuevo Juego</button>
    </div>
+
+<div class="audio">
+    <audio controls autoplay>
+        <source src = "music.mp3" type="audio/mpeg">
+    </audio>
+</div>
+  
    
     <script src="scritp.js"></script>
+
 </body>
 </html>
