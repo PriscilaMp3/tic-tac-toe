@@ -1,12 +1,12 @@
-//ARREGLAR QUE CUANDO TOCA PARA ESCRIBIR QUE NO PUEDA ESCRIBIR HASTA QUE LA MAQUINA NO HAYA MARCADO
-let casilla = ["", "", "", "", "", "", "", "", ""]; //casillas array de 9 elementos que se encuentras vacios//
-let JugadorActual = "X"; // una variable para indicar que el jugador inicial inicia con "X"
-let Jugadordiv = document.querySelector(".Jugadores");
-let Jugador = document.getElementById("Player");
-let Click = true;
-let imag = document.getElementById("imag");
+let casilla = ["", "", "", "", "", "", "", "", ""]; // Array de 9 elementos que se encuentras vacios//
+let JugadorActual = "X"; // Variable para indicar que el jugador inicial, va a iniciar con "X"
+let Jugadordiv = document.querySelector(".Jugadores"); //Obtener el elemento del DOM, por medio de la variable.
+let Jugador = document.getElementById("Player");//Obtener el elemento del DOM, por medio de la variable.
+const buttons = document.getElementsByClassName("celda"); //Obtener el elemento del DOM, por medio de la variable.
+let imag = document.getElementById("imag"); //Obtener el elemento del DOM, por medio de la variable.
+let Click = true; // variable, que contiene un booleano.
 
-const combinacionesGanadoras = [
+const combinacionesGanadoras = [  //objeto que contiene dentro arrays de posibles ganadores//
   [0, 1, 2], // Filas
   [3, 4, 5], // Filas
   [6, 7, 8], // Filas
@@ -16,21 +16,16 @@ const combinacionesGanadoras = [
   [0, 4, 8], // Diagonales
   [2, 4, 6], // Diagonales
 ];
-
-// Se guardan todos los botones en una variable
-const buttons = document.getElementsByClassName("celda");
-
-// el for hará un recorrido del array de botones "buttons", y detectará cuando algún botón seleccionado llamando a la función playerMove enviandole su posición
+// el for hará un recorrido del array de botones "buttons", y detectará cuando algún botón sea seleccionado, llamando la función movimientJugador enviandole su posición
 for (let i = 0; i < buttons.length; i++) {
   buttons[i].addEventListener("click", function () {
     if (Click) {
-      playerMove(i);
+      movimientJugador(i);
     }
   });
 }
-
 // Función para hacer un movimiento del jugador
-function playerMove(posicion) {
+function movimientJugador(posicion) {
   if (Click && casilla[posicion] === "") {
 
     Click = false;
@@ -46,7 +41,7 @@ function playerMove(posicion) {
         Jugadordiv.classList.add("hide");
         imag.src = 'img1.png'
       }, 100);
-    } else if (checkDraw()) {
+    } else if (marcarCasilla()) {
       setTimeout(() => {
         mostrarmensaje("¡Empate!");
         mostraremer();
@@ -58,7 +53,7 @@ function playerMove(posicion) {
     // Cambiar el jugador actual
     JugadorActual = "O";
     // Dejar que el ordenador haga su movimiento
-    setTimeout(computerMove, 1000);
+    setTimeout(movmientoComptador, 1000);
   }
 }
 
@@ -78,30 +73,30 @@ function checkWinner(jugadorP) {
 }
 
 // Determinar con una funcion si hay un empate
-function checkDraw() {
+function marcarCasilla() {
   return !casilla.includes("");
 }
 
 
 // Función para que el ordenador haga su movimiento
-function computerMove() {
+function movmientoComptador() {
   if(JugadorActual === "O"){
     // Obtener una lista de movimientos válidos
-    const validMoves = casilla.reduce((acc, cell, index) => {
+    const validMoves = casilla.reduce((cuenta, cell, index) => {
       if (cell === "") {
-        acc.push(index);
+        cuenta.push(index);
       }
-      return acc;
+      return cuenta;
     }, []);
 
     // Elegir un movimiento al azar de los disponibles
     const randomIndex = Math.floor(Math.random() * validMoves.length);
-    const computerChoice = validMoves[randomIndex];
-    casilla[computerChoice - 1];
+    const turnoComputadora = validMoves[randomIndex];
+    // casilla[turnoComputadora - 1];
 
     // Realizar el movimiento del ordenador
-    casilla[computerChoice] = "O";
-    document.getElementsByClassName("celda")[computerChoice].innerText = "O";
+    casilla[turnoComputadora] = "O";
+    document.getElementsByClassName("celda")[turnoComputadora].innerText = "O";
     Jugador.innerText = "Jugador 1"
     // Verificar el resultado
     if (checkWinner("O")) {
@@ -111,7 +106,7 @@ function computerMove() {
         imag.src = 'img2.png'
         Jugadordiv.classList.add("hide");
       }, 100);
-    } else if (checkDraw()) {
+    } else if (marcarCasilla()) {
       setTimeout(() => {
         mostrarmensaje("¡Empate!");
         mostraremer();
@@ -128,7 +123,7 @@ function computerMove() {
 
 
 // Función para reiniciar el juego
-function resetGame() {
+function reiniciarjuego() {
   casilla = ["", "", "", "", "", "", "", "", ""];
   JugadorActual = "X";
   const buttons = document.getElementsByClassName("celda");
@@ -162,11 +157,11 @@ function mostrarmensaje(message) {
 // Reiniciar juego al hacer clic en "Restart"
 
 // reiniciar el juego por medio de una actualizacion de la pagina.....
-document.getElementById("restart").addEventListener("click", resetGame);
+document.getElementById("restart").addEventListener("click", reiniciarjuego);
 
 // Iniciar un nuevo juego al hacer clic en "New Game" en la ventana emergente
 document.getElementById("new-game").addEventListener("click", () => {
   esconderemer();
-  resetGame();
+  reiniciarjuego();
 });
 
