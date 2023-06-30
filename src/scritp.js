@@ -4,6 +4,8 @@ let JugadorActual = "X"; // una variable para indicar que el jugador inicial ini
 let Jugadordiv = document.querySelector(".Jugadores");
 let Jugador = document.getElementById("Player");
 let Click = true;
+let imag = document.getElementById("imag");
+
 const combinacionesGanadoras = [
   [0, 1, 2], // Filas
   [3, 4, 5], // Filas
@@ -42,11 +44,13 @@ function playerMove(posicion) {
         mostrarmensaje("¡Has ganado!");
         mostraremer();
         Jugadordiv.classList.add("hide");
+        imag.src = 'img1.png'
       }, 100);
     } else if (checkDraw()) {
       setTimeout(() => {
         mostrarmensaje("¡Empate!");
         mostraremer();
+        imag.src = 'img3.png'
         Jugadordiv.classList.add("hide");
       }, 100);
     }
@@ -104,12 +108,14 @@ function computerMove() {
       setTimeout(() => {
         mostrarmensaje("¡Has perdido!");
         mostraremer();
+        imag.src = 'img2.png'
         Jugadordiv.classList.add("hide");
       }, 100);
     } else if (checkDraw()) {
       setTimeout(() => {
         mostrarmensaje("¡Empate!");
         mostraremer();
+        imag.src = 'img3.png'
         Jugadordiv.classList.add("hide");
       }, 100);
     }
@@ -163,5 +169,4 @@ document.getElementById("new-game").addEventListener("click", () => {
   esconderemer();
   resetGame();
 });
-
 
